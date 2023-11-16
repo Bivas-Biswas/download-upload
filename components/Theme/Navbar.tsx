@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -7,7 +6,7 @@ const Navbar = () => {
         <div className="py-2 px-4">
             <div>
                 <Link href={'/'}>
-                    <Image src="/logo.png" alt={'logo'} width="120" height={'100'}/>
+                    <img src="/logo.png" alt={'logo'} width={'100px'}/>
                 </Link>
             </div>
         </div>
