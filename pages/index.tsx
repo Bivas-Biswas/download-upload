@@ -116,7 +116,7 @@ export default function Home() {
                         if(!csvFile) return console.error('no file founed to download')
                         downloadFileByBlob(
                             csvFile,
-                            'ouput leadlist.csv'
+                            'literalhumansoutput.csv'
                         )
                     }}><DownloadIcon />Download CSV</Button>)
                 )
