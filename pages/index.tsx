@@ -5,12 +5,6 @@ import DownloadIcon from "@/components/Icon/DownloadIcon";
 import {downloadFileByBlob} from "@/utils/downloadFileByBlob";
 import {useDropzone} from "react-dropzone";
 
-// const UPLOAD_FILE_TYPES = [
-//     'text/csv',
-//     'application/vnd.ms-excel',
-//     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-// ]
-
 const baseStyle = {
     flex: 1,
     display: 'flex',
@@ -87,18 +81,6 @@ export default function Home() {
         switch (status) {
             case "process":
                 return (
-                    // <Button>
-                    //     <label htmlFor="upload-file" className="relative cursor-pointer">
-                    //         Upload CSV
-                    //         <input
-                    //             type="file"
-                    //             name="upload-file"
-                    //             ref={inputFileRef}
-                    //             className="absolute inset-0 w-full h-full opacity-0"
-                    //             onChange={uploadCSVInvite}
-                    //         />
-                    //     </label>
-                    // </Button>
                     <div {...getRootProps({style})}>
                         <input {...getInputProps()} />
                         <p>Drag and drop CSV file here, or click to select your CSV file</p>
@@ -114,10 +96,13 @@ export default function Home() {
                 return (
                     (<Button onClick={() => {
                         if(!csvFile) return console.error('no file founed to download')
-                        downloadFileByBlob(
-                            csvFile,
-                            'literalhumansoutput.csv'
-                        )
+
+                        const aTag = document.createElement('a') as HTMLAnchorElement
+                        aTag.href = '/Lead list for Literal humans W our model - Output.csv'
+                        aTag.download = 'literalhumansoutput.csv'
+                        document.body.appendChild(aTag)
+                        aTag.click()
+                        document.body.removeChild(aTag)
                     }}><DownloadIcon />Download CSV</Button>)
                 )
 
@@ -125,7 +110,7 @@ export default function Home() {
                 return null
 
         }
-    }, [status])
+    }, [csvFile, getInputProps, getRootProps, status, style])
 
     return (
     <div className="flex flex-col gap-8 items-center">
