@@ -98,7 +98,7 @@ export default function Home() {
                         if(!csvFile) return console.error('no file founed to download')
 
                         const aTag = document.createElement('a') as HTMLAnchorElement
-                        aTag.href = '/Lead list for Literal humans W our model - Output.csv'
+                        aTag.href = '/literalhumansoutput.csv'
                         aTag.download = 'literalhumansoutput.csv'
                         document.body.appendChild(aTag)
                         aTag.click()
