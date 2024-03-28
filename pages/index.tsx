@@ -98,8 +98,8 @@ export default function Home() {
                         if(!csvFile) return console.error('no file founed to download')
 
                         const aTag = document.createElement('a') as HTMLAnchorElement
-                        aTag.href = '/literalhumansoutput.csv'
-                        aTag.download = 'literalhumansoutput.csv'
+                        aTag.href = '/Output.personalised.sequences.csv'
+                        aTag.download = 'Output.personalised.sequences.csv'
                         document.body.appendChild(aTag)
                         aTag.click()
                         document.body.removeChild(aTag)
@@ -115,9 +115,9 @@ export default function Home() {
     return (
     <div className="flex flex-col gap-8 items-center">
         <div>
-            <h1 className="text-[#1e2022] text-5xl font-semibold text-center">Personalise emails for all prospects <span className="uppercase text-primary-default" style={{
+            <h1 className="text-[#1e2022] text-5xl font-semibold text-center">Personalised Outreach Sequences For <span className="text-4xl uppercase text-primary-default" style={{
                 background: 'linear-gradient(180deg, transparent 82%, rgba(249, 185, 52, 0.3) 0%)'
-            }}>on autopilot</span></h1>
+            }}>Amazon Marketing Agency</span></h1>
         </div>
 
         <div className="text-[#1e2022] flex flex-col items-start">
