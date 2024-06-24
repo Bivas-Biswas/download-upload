@@ -4,6 +4,7 @@ import LoadingIcon from "@/components/Icon/LoadingIcon";
 import DownloadIcon from "@/components/Icon/DownloadIcon";
 import {downloadFileByBlob} from "@/utils/downloadFileByBlob";
 import {useDropzone} from "react-dropzone";
+import { useRouter } from "next/router";
 
 const baseStyle = {
     flex: 1,
@@ -35,6 +36,10 @@ const rejectStyle = {
 export default function Home() {
     const [csvFile, setCsvFile] = useState<File | null>(null)
     const [status, setStatus] = useState<'process' | 'uploading' | 'fething' | 'dowload'>('process')
+    const router = useRouter()
+
+    const { type } = router.query
+
     const {
         getRootProps,
         getInputProps,
@@ -117,7 +122,7 @@ export default function Home() {
         <div>
             <h1 className="text-[#1e2022] text-5xl font-semibold text-center">Personalised Outreach Sequences For <span className="text-4xl uppercase text-primary-default" style={{
                 background: 'linear-gradient(180deg, transparent 82%, rgba(249, 185, 52, 0.3) 0%)'
-            }}>Amazon Marketing Agency</span></h1>
+            }}>{ type || 'Amazon' } Marketing Agency</span></h1>
         </div>
 
         <div className="text-[#1e2022] flex flex-col items-start">
